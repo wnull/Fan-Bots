@@ -1,7 +1,7 @@
 # Fan-Bot's ![](https://img.shields.io/badge/PRICE-free-%231DC8EE) ![](https://img.shields.io/badge/.Net_Framework-4.7-%231DC8EE)
 ![GitHub All Releases](https://img.shields.io/github/downloads/Lako-FC/Fan-Bots/total?color=%231DC8EE&label=DOWNLOADS&logo=GitHub&logoColor=%231DC8EE&style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/Lako-FC/an-Bots?color=%231DC8EE&label=LAST%20COMMIT&style=flat-square)
-![GitHub Release Date](https://img.shields.io/github/release-date/Lako-FC/wan-Bots?color=%231DC8EE&label=RELEASE%20DATE&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/Lako-FC/Fan-Bots?color=%231DC8EE&label=LAST%20COMMIT&style=flat-square)
+![GitHub Release Date](https://img.shields.io/github/release-date/Lako-FC/Fan-Bots?color=%231DC8EE&label=RELEASE%20DATE&style=flat-square)
 
 Fan-Bot's - **бесплатное ПО**, которое запускает ботов для игры Warface.
 
