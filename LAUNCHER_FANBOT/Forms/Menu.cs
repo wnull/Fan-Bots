@@ -270,97 +270,71 @@ namespace LAUNCHER_FANBOT
         }
         private void button_settings_bots_Click(object sender, EventArgs e) => ChangePage(1);
 
-        //[bool tmp = sender != null || e != null;] -> [(sender == null && e == null) ? false : true;]
         private void button_color_console_Click(object sender, EventArgs e)
         {
-            bool tmp = sender != null || e != null;
+            bool save_color = sender != null && e != null;
+            if (save_color && colorDialog_main.ShowDialog() != DialogResult.OK) return;
 
-            Color color = Color.White;
-            if (tmp)
-            {
-                if (colorDialog_main.ShowDialog() != DialogResult.OK) return;
-                color = colorDialog_main.Color;
-            }
+            Color color = save_color ? colorDialog_main.Color : ColorTranslator.FromHtml(colors[0]);
 
             List<Control> controls = new List<Control>();
             EngineWork.GetAllControls_ForSettings(controls, this, richlog_info_bots.GetType());
+            foreach (RichTextBox tmp_richTextBox in controls) tmp_richTextBox.BackColor = color;
 
-            foreach (RichTextBox tmp_richTextBox in controls) tmp_richTextBox.BackColor = tmp ? color : Color.FromName(colors[0]);
-
-            if (tmp) colors[0] = color.Name;
+            if (save_color) colors[0] = ColorTranslator.ToHtml(color);
         }
         private void button_setting_font_Click(object sender, EventArgs e)
         {
-            bool tmp = sender != null || e != null;
+            bool save_color = sender != null && e != null;
+            if (save_color && colorDialog_main.ShowDialog() != DialogResult.OK) return;
 
-            Color color = Color.White;
-            if (tmp)
-            {
-                if (colorDialog_main.ShowDialog() != DialogResult.OK) return;
-                color = colorDialog_main.Color;
-            }
+            Color color = save_color ? colorDialog_main.Color : ColorTranslator.FromHtml(colors[1]);
 
             List<Control> controls = new List<Control>();
             EngineWork.GetAllControls_ForSettings(controls, this, richlog_info_bots.GetType());
+            foreach (RichTextBox tmp_richTextBox in controls) tmp_richTextBox.ForeColor = color;
 
-            foreach (RichTextBox tmp_richTextBox in controls) tmp_richTextBox.ForeColor = tmp ? color : Color.FromName(colors[1]);
-
-            if (tmp) colors[1] = color.Name;
+            if (save_color) colors[1] = ColorTranslator.ToHtml(color);
         }
         private void button_color_fon_Click(object sender, EventArgs e)
         {
-            bool tmp = sender != null || e != null;
+            bool save_color = sender != null && e != null;
+            if (save_color && colorDialog_main.ShowDialog() != DialogResult.OK) return;
 
-            Color color = Color.White;
-            if (tmp)
-            {
-                if (colorDialog_main.ShowDialog() != DialogResult.OK) return;
-                color = colorDialog_main.Color;
-            }
-            BackColor = tmp ? color : Color.FromName(colors[2]);
-
+            Color color = save_color ? colorDialog_main.Color : ColorTranslator.FromHtml(colors[2]);
+            BackColor = color;
+            
             List<Control> controls = new List<Control>();
             EngineWork.GetAllControls_ForSettings(controls, this, page_bot_global_settings.GetType());
+            foreach (TabPage tmp_tabpage in controls) tmp_tabpage.BackColor = color;
 
-            foreach (TabPage tmp_tabpage in controls) tmp_tabpage.BackColor = tmp ? color : Color.FromName(colors[2]);
-
-            if (tmp) colors[2] = color.Name;
+            if (save_color) colors[2] = ColorTranslator.ToHtml(color);
         }
         private void button_colors_fon_Click(object sender, EventArgs e)
         {
-            bool tmp = sender != null || e != null;
+            bool save_color = sender != null && e != null;
+            if (save_color && colorDialog_main.ShowDialog() != DialogResult.OK) return;
 
-            Color color = Color.White;
-            if (tmp)
-            {
-                if (colorDialog_main.ShowDialog() != DialogResult.OK) return;
-                color = colorDialog_main.Color;
-            }
+            Color color = save_color ? colorDialog_main.Color : ColorTranslator.FromHtml(colors[3]);
 
             List<Control> controls = new List<Control>();
             EngineWork.GetAllControls_ForSettings(controls, this, button_colors_fon.GetType());
+            foreach (Button tmp_button in controls) tmp_button.BackColor = color;
 
-            foreach (Button tmp_button in controls) tmp_button.BackColor = tmp ? color : Color.FromName(colors[3]);
-
-            if (tmp) colors[3] = color.Name;
+            if (save_color) colors[3] = ColorTranslator.ToHtml(color);
         }
         private void button_colors_text_Click(object sender, EventArgs e)
         {
-            bool tmp = sender != null || e != null;
+            bool save_color = sender != null && e != null;
+            if (save_color && colorDialog_main.ShowDialog() != DialogResult.OK) return;
 
-            Color color = Color.White;
-            if (tmp)
-            {
-                if (colorDialog_main.ShowDialog() != DialogResult.OK) return;
-                color = colorDialog_main.Color;
-            }
+            Color color = save_color ? colorDialog_main.Color : ColorTranslator.FromHtml(colors[4]);
 
             List<Control> controls = new List<Control>();
             EngineWork.GetAllControls_ForSettings(controls, this, button_colors_fon.GetType());
+            foreach (Button tmp_button in controls) tmp_button.ForeColor = color;
 
-            foreach (Button tmp_button in controls) tmp_button.ForeColor = tmp ? color : Color.FromName(colors[4]);
-
-            if (tmp) colors[4] = color.Name;
+            if (save_color) colors[4] = ColorTranslator.ToHtml(color);
         }
         private void button_clear_logs_Click(object sender, EventArgs e)
         {
@@ -947,7 +921,7 @@ namespace LAUNCHER_FANBOT
 
                     //Цвет текста консоли
                     comboBox_text_colors.SelectedIndex = Convert.ToInt32(settings_menu.Read(comboBox_text_colors.Name, sect).Length > 0 ? settings_menu.Read(comboBox_text_colors.Name, sect) : "0");
-
+                    
                     //Логи
                     checkBox_save_logs.Checked = bool.Parse(settings_menu.Read(checkBox_save_logs.Name, sect));
 
@@ -1005,7 +979,7 @@ namespace LAUNCHER_FANBOT
             }
             catch (Exception er)
             {
-                EngineWork.MSB_Error("Ошибка загрузки настроек! [1]\n" + er);
+                EngineWork.MSB_Error($"Ошибка загрузки настроек лаунчер!\n{er}");
                 SaveSettings(null, null);
             }
 
@@ -1024,7 +998,7 @@ namespace LAUNCHER_FANBOT
                     wb_settings.Write("g_language", "russian", sett);
                 }
             }
-            catch (Exception er) { EngineWork.MSB_Error("Ошибка загрузки настроек! [2]\n" + er); }
+            catch (Exception er) { EngineWork.MSB_Error($"Ошибка загрузки настроек бота!\n{er}"); }
             if (!File.Exists(auto_command)) File.Create(auto_command);
         }
         public void LoadPrms()
