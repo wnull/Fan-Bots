@@ -19,7 +19,7 @@ namespace AUTHORIZATION
             {
                 string xmlRequest = request;
                 HttpWebRequest webRequest = WebRequest.Create(URL) as HttpWebRequest;
-                webRequest.Timeout = 1000 * 30;
+                webRequest.Timeout = 30000;
                 webRequest.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
                 webRequest.Method = "POST";
 
