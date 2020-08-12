@@ -15,7 +15,7 @@ namespace AUTHORIZATION
         {
             WebRequest req = WebRequest.Create(Url);
             req.Method = "POST";
-            req.Timeout = 100000;
+            req.Timeout = 30000;
             req.ContentType = "application/x-www-form-urlencoded";
             req.Headers.Add("useragent: libcurl-agent/1.0");
             byte[] sentData = Encoding.GetEncoding(1251).GetBytes(Data);
