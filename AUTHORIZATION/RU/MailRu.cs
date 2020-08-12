@@ -343,7 +343,7 @@ namespace AUTHORIZATION
                 Request.AllowAutoRedirect = false;
                 Request.Accept = "*/*";
                 Request.UserAgent = "Downloader/15740";
-                Request.Timeout = 10000;
+                Request.Timeout = 30000;
 
                 if (Content != null)
                 {
