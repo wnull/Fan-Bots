@@ -1,4 +1,4 @@
-﻿using AUTHORIZATION;
+using AUTHORIZATION;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -613,7 +613,6 @@ namespace LAUNCHER_FANBOT
             proc.Start();
             proc.BeginOutputReadLine();
         }
-
         private void ConsoleOutputHandler(object sendingProcess, DataReceivedEventArgs Data)
         {
             IniFile FollowBoss = new IniFile(files_names[5]);
@@ -673,6 +672,7 @@ namespace LAUNCHER_FANBOT
             }
             catch (Exception er) { EngineWork.MSB_Error($"{er}"); }
         }
+
         private void WriteCmd(RichTextBox rch, TextBox txb, Process proc, bool delete_cmd, string text = "")
         {
             try
@@ -717,31 +717,15 @@ namespace LAUNCHER_FANBOT
         }
         private void OpenCMD(int id_bot, string token, string id, string server)
         {
-            if (!File.Exists($@"cfg\server\{server}.cfg"))
-            {
-                Directory.CreateDirectory(@"cfg\server\");
-                File.Create(@"cfg\server\" + server + ".cfg");
-            }
             try
             {
-                if (radioButton_levak_keys.Checked)
-                {
-                    string levak = EngineWork.GET("http://github.com/Levak/warfacebot/blob/master/cfg/server/" + server + ".cfg");
+                string tmp_file_server_cfg = $@"cfg\server\{server}.cfg";
 
-                    string[] prms = new string[6];
-                    prms[0] = new Regex("online_server</span> = (.*)</td>").Match(levak).Groups[1].Value;
-                    prms[1] = new Regex("game_manual_profile_creation</span> = (.*)</td>").Match(levak).Groups[1].Value;
-                    prms[2] = new Regex("game_server_name</span> = (.*)</td>").Match(levak).Groups[1].Value;
-                    prms[3] = new Regex("game_version</span> = (.*)</td>").Match(levak).Groups[1].Value;
-                    prms[4] = new Regex("game_crypt_iv</span> = (.*)</td>").Match(levak).Groups[1].Value;
-                    prms[5] = new Regex("game_crypt_key</span> = (.*)</td>").Match(levak).Groups[1].Value;
-
-                    File.WriteAllText(@"cfg\server\" + server + ".cfg",
-                        $"online_server = {prms[0]}\n" + $"game_manual_profile_creation = {prms[1]}\n" + $"game_server_name = {prms[2]}\n" +
-                        $"game_version = {prms[3]}\n" + $"game_crypt_iv = {prms[4]}\n" + $"game_crypt_key = {prms[5]}\n");
-                }
+                if (radioButton_levak_keys.Checked) 
+                    File.WriteAllText(tmp_file_server_cfg, EngineWork.GET($@"https://raw.githubusercontent.com/Levak/warfacebot/master/cfg/server/{server}.cfg"));
             }
-            catch (Exception er) { EngineWork.MSB_Error($"Возможно у вас недоступен интеренет, либо режим получения ключей недоступен!\nСмените режим получения ключей!\n{er}"); return; }
+            catch (Exception er) { EngineWork.MSB_Error($"Возможно у вас недоступен интеренет, либо режим получения ключей недоступен!\n\n{er}"); return; }
+
             try
             {
                 string bots = files_names[1];
@@ -777,7 +761,7 @@ namespace LAUNCHER_FANBOT
                 }
                 bots_status[id_bot] = false;
             }
-            catch (Exception er) { EngineWork.MSB_Error("Ошибка запуска CMD! \n" + er); bots_status[id_bot] = false; }
+            catch (Exception er) { EngineWork.MSB_Error("Ошибка запуска CMD!\n" + er); bots_status[id_bot] = false; }
         }
         private void Start_Aut(ComboBox comboBox, string login, string password, Button button, string bot, CheckBox checkBox)
         {
