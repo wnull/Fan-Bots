@@ -1,4 +1,4 @@
-﻿namespace LAUNCHER_FANBOT
+namespace LAUNCHER_FANBOT
 {
     partial class Menu
     {
@@ -1740,7 +1740,7 @@
             this.button_colors_text.Name = "button_colors_text";
             this.button_colors_text.Size = new System.Drawing.Size(97, 22);
             this.button_colors_text.TabIndex = 10;
-            this.button_colors_text.Text = "ТЕКСТ";
+            this.button_colors_text.Text = "ЦВЕТ ТЕКСТА";
             this.button_colors_text.UseVisualStyleBackColor = true;
             this.button_colors_text.Click += new System.EventHandler(this.button_colors_text_Click);
             // 
@@ -1751,7 +1751,7 @@
             this.button_colors_fon.Name = "button_colors_fon";
             this.button_colors_fon.Size = new System.Drawing.Size(97, 22);
             this.button_colors_fon.TabIndex = 9;
-            this.button_colors_fon.Text = "ФОН";
+            this.button_colors_fon.Text = "ЦВЕТ ФОНА";
             this.button_colors_fon.UseVisualStyleBackColor = true;
             this.button_colors_fon.Click += new System.EventHandler(this.button_colors_fon_Click);
             // 
@@ -1764,7 +1764,7 @@
             this.groupBox_settings_color_backround_console.Size = new System.Drawing.Size(233, 53);
             this.groupBox_settings_color_backround_console.TabIndex = 17;
             this.groupBox_settings_color_backround_console.TabStop = false;
-            this.groupBox_settings_color_backround_console.Text = "Консоль (лаунчера)";
+            this.groupBox_settings_color_backround_console.Text = "Консоль лаунчера";
             // 
             // button_setting_font
             // 
@@ -2666,4 +2666,3 @@
         protected internal System.Windows.Forms.Label label_link_vk_fanbots;
     }
 }
-
