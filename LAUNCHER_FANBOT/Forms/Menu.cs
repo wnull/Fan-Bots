@@ -35,6 +35,7 @@ namespace LAUNCHER_FANBOT
         private readonly TextBox[] textBox_cmds;
         private readonly Process[] processes_bots = new Process[5];
         private readonly bool[] bots_status = new bool[5];
+        private readonly string useful_variable = "Типа полезная переменная";
 
         private static readonly string[] colors = new string[5];
         public string[] files_names = new string[4] { "wb.exe", "setting_launcher_fanbot.ini", "accounts.ini", "setting_bots.ini" };
