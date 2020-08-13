@@ -1737,12 +1737,11 @@ namespace LAUNCHER_FANBOT
             // 
             this.hScrollBar_transparency.LargeChange = 5;
             this.hScrollBar_transparency.Location = new System.Drawing.Point(7, 14);
-            this.hScrollBar_transparency.Maximum = 104;
             this.hScrollBar_transparency.Minimum = 10;
             this.hScrollBar_transparency.Name = "hScrollBar_transparency";
             this.hScrollBar_transparency.Size = new System.Drawing.Size(200, 14);
             this.hScrollBar_transparency.TabIndex = 1;
-            this.hScrollBar_transparency.Value = 95;
+            this.hScrollBar_transparency.Value = 100;
             this.hScrollBar_transparency.ValueChanged += new System.EventHandler(this.hScrollBar1_ValueChanged);
             // 
             // groupBox_settings_color_backround
