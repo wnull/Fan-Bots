@@ -11,12 +11,18 @@ START/[Bb]in/
 
 [Ll][Oo][Gg][Ss]/
 [Qq][Uu][Ee][Rr][Yy][Cc][Aa][Cc][Hh][Ee]/
+
 [Aa][Cc][Cc][Oo][Uu][Nn][Tt][Ss].*
 [Mm]ail[Rr]u[Aa]uth[Ll]og.*
 __LANG.*
 auto_command.*
+
 *.[Ll][Oo][Gg]
 *.config
+
+START.exe
+FanBotsAuth.dll
+launcher.exe
 
 # User-specific files
 *.rsuser
