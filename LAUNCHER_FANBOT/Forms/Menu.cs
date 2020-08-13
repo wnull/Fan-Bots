@@ -525,26 +525,25 @@ namespace LAUNCHER_FANBOT
 
             byte server = 0;
             comboBox.Invoke((MethodInvoker)delegate { server = serverBox(comboBox); });
-            IniFile acc = new IniFile(files_names[2]);
-            acc.Write(login, lg, $"{bot}-{server}");
-            acc.Write(password, ps, $"{bot}-{server}");
+            IniFile account = new IniFile(files_names[2]);
+            account.Write(login, lg, $"{bot}-{server}");
+            account.Write(password, ps, $"{bot}-{server}");
         }
         private void LoadAccount(ComboBox cbx, string bot, CheckBox chk, TextBox txtl, TextBox txtp)
         {
             if (!chk.Checked) return;
 
-            byte server = serverBox(cbx); //id server
-            IniFile acc = new IniFile(files_names[2]);
-            txtl.Text = acc.Read(login, $"{bot}-{server}");
-            txtp.Text = acc.Read(password, $"{bot}-{server}");
+            byte server = serverBox(cbx);
+            IniFile account = new IniFile(files_names[2]);
+            txtl.Text = account.Read(login, $"{bot}-{server}");
+            txtp.Text = account.Read(password, $"{bot}-{server}");
         }
 
         private void DeleteDataServer(string bot, ComboBox comboBox)
         {
             try
             {
-                byte server = serverBox(comboBox);
-                new IniFile(files_names[2]).DeleteSection($"{bot}-{server}");
+                new IniFile(files_names[2]).DeleteSection($"{bot}-{serverBox(comboBox)}");
                 if (File.Exists("mailru-two-factor")) File.Delete("mailru-two-factor");
 
                 EngineWork.MSB_Information("Данные удалены!", "Удаление данных..");
