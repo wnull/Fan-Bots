@@ -15,7 +15,7 @@ START/[Bb]in/
 [Mm]ail[Rr]u[Aa]uth[Ll]og.*
 __LANG.*
 auto_command.txt
-*.log
+*.[Ll][Oo][Gg]
 *.config
 
 # User-specific files
