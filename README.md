@@ -15,6 +15,7 @@ Fan-Bot's - **бесплатное ПО**, которое запускает б�
 [releases]: https://github.com/Lako-FC/Fan-Bots/releases/
 [warfacebotfb]: https://github.com/Lako-FC/warfacebot_fb/releases/
 [commands_wb]: https://github.com/Lako-FC/warfacebot_fb#команды
+[screenshots]: https://github.com/Lako-FC/Fan-Bots/tree/master/SCREENSHOTS/README.md
 
 ## Основной функционал
 
@@ -33,7 +34,10 @@ Fan-Bot's - **бесплатное ПО**, которое запускает б�
 - Поддержка двухфакторной авторизации.
 
 ## Скриншоты
-<img src="https://github.com/Lako-FC/Fan-Bots/blob/master/SCREENSHOTS/1.png?raw=true" width="450px;"> <img src="https://github.com/Lako-FC/Fan-Bots/blob/master/SCREENSHOTS/2.png?raw=true" width="450px;"> <img src="https://github.com/Lako-FC/Fan-Bots/blob/master/SCREENSHOTS/3.png?raw=true" width="450px;"> <img src="https://github.com/Lako-FC/Fan-Bots/blob/master/SCREENSHOTS/4.png?raw=true" width="450px;">
+- Главное меню:
+<img src="https://github.com/Lako-FC/Fan-Bots/blob/master/SCREENSHOTS/1.png?raw=true" width="450px;">
+
+- Остальные **[скрины][screenshots]**
 
 ## Для разработчиков
 - ### Информация о проекте
