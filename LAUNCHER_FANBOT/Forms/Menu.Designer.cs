@@ -1879,10 +1879,12 @@ namespace LAUNCHER_FANBOT
             // standart_start
             // 
             this.standart_start.AutoSize = true;
+            this.standart_start.Checked = true;
             this.standart_start.Location = new System.Drawing.Point(7, 16);
             this.standart_start.Name = "standart_start";
             this.standart_start.Size = new System.Drawing.Size(133, 17);
             this.standart_start.TabIndex = 8;
+            this.standart_start.TabStop = true;
             this.standart_start.Text = "Стандартный запуск";
             this.standart_start.UseVisualStyleBackColor = true;
             this.standart_start.CheckedChanged += new System.EventHandler(this.standart_start_CheckedChanged);
@@ -1901,12 +1903,10 @@ namespace LAUNCHER_FANBOT
             // simple_start
             // 
             this.simple_start.AutoSize = true;
-            this.simple_start.Checked = true;
             this.simple_start.Location = new System.Drawing.Point(7, 35);
             this.simple_start.Name = "simple_start";
             this.simple_start.Size = new System.Drawing.Size(108, 17);
             this.simple_start.TabIndex = 5;
-            this.simple_start.TabStop = true;
             this.simple_start.Text = "Простой запуск";
             this.simple_start.UseVisualStyleBackColor = true;
             this.simple_start.CheckedChanged += new System.EventHandler(this.standart_start_CheckedChanged);

@@ -37,7 +37,7 @@ namespace LAUNCHER_FANBOT
         private readonly bool[] bots_status = new bool[5];
 
         private static readonly string[] colors = new string[5];
-        public string[] files_names = new string[6] { "launcher.exe", "wb.exe", "setting_launcher_fanbot.ini", "accounts.ini", "files_names.ini", "setting_bots.ini" };
+        public string[] files_names = new string[4] { "wb.exe", "setting_launcher_fanbot.ini", "accounts.ini", "setting_bots.ini" };
         private readonly string auto_command = "auto_command.txt";
 
         private string TimeText() => $"{DateTime.Now:HH:mm:ss}";
@@ -69,8 +69,8 @@ namespace LAUNCHER_FANBOT
 
             try
             {
-                IniFile SettingsBots = new IniFile(files_names[5]);
-                if (File.Exists(files_names[5]))
+                IniFile SettingsBots = new IniFile(files_names[3]);
+                if (File.Exists(files_names[3]))
                 {
                     //Друзья
                     ignor_friends.Checked = SettingsBots.Read("wb_accept_friend_requests", sett) == "0";
@@ -140,7 +140,7 @@ namespace LAUNCHER_FANBOT
 
         private void button_delete_setting_Click(object sender, EventArgs e)
         {
-            File.Delete(files_names[2]);
+            File.Delete(files_names[1]);
             Process.Start(Application.ProductName + ".exe");
             Environment.Exit(0);
         }
@@ -184,10 +184,10 @@ namespace LAUNCHER_FANBOT
                 !checkBox_bots[3].Checked && !checkBox_bots[4].Checked && !checkBox_bots_all.Checked)
             { EngineWork.MSB_Error("Вы не выбрали бота.."); return; }
 
-            if (File.Exists(files_names[3]))
+            if (File.Exists(files_names[2]))
             {
                 int n_bots = 0;
-                IniFile accounts = new IniFile(files_names[3]);
+                IniFile accounts = new IniFile(files_names[2]);
 
                 try
                 {
@@ -361,7 +361,7 @@ namespace LAUNCHER_FANBOT
             byte server = serverBox(comboBox_bots_server);
             if (server == 8) return;
 
-            IniFile acc = new IniFile(files_names[3]);
+            IniFile acc = new IniFile(files_names[2]);
             try
             {
                 for (int i = 1; i <= 5; i++)
@@ -394,9 +394,9 @@ namespace LAUNCHER_FANBOT
         }
         private void timer_check_data_Tick(object sender, EventArgs e)
         {
-            if (File.Exists(files_names[3]))
+            if (File.Exists(files_names[2]))
             {
-                IniFile accounts = new IniFile(files_names[3]);
+                IniFile accounts = new IniFile(files_names[2]);
                 byte server = serverBox(comboBox_bots_server);
                 if (server == 8)
                 {
@@ -525,7 +525,7 @@ namespace LAUNCHER_FANBOT
 
             byte server = 0;
             comboBox.Invoke((MethodInvoker)delegate { server = serverBox(comboBox); });
-            IniFile acc = new IniFile(files_names[3]);
+            IniFile acc = new IniFile(files_names[2]);
             acc.Write(login, lg, $"{bot}-{server}");
             acc.Write(password, ps, $"{bot}-{server}");
         }
@@ -534,7 +534,7 @@ namespace LAUNCHER_FANBOT
             if (!chk.Checked) return;
 
             byte server = serverBox(cbx); //id server
-            IniFile acc = new IniFile(files_names[3]);
+            IniFile acc = new IniFile(files_names[2]);
             txtl.Text = acc.Read(login, $"{bot}-{server}");
             txtp.Text = acc.Read(password, $"{bot}-{server}");
         }
@@ -544,7 +544,7 @@ namespace LAUNCHER_FANBOT
             try
             {
                 byte server = serverBox(comboBox);
-                new IniFile(files_names[3]).DeleteSection($"{bot}-{server}");
+                new IniFile(files_names[2]).DeleteSection($"{bot}-{server}");
                 if (File.Exists("mailru-two-factor")) File.Delete("mailru-two-factor");
 
                 EngineWork.MSB_Information("Данные удалены!", "Удаление данных..");
@@ -555,7 +555,7 @@ namespace LAUNCHER_FANBOT
         {
             try
             {
-                IniFile iniFile = new IniFile(files_names[3]);
+                IniFile iniFile = new IniFile(files_names[2]);
                 for (int i = 0; i < comboBox1.Items.Count; i++)
                 {
                     iniFile.DeleteSection($"{bot}-{i}");
@@ -589,7 +589,7 @@ namespace LAUNCHER_FANBOT
         }
         private void ConsoleOutputHandler(object sendingProcess, DataReceivedEventArgs Data)
         {
-            IniFile FollowBoss = new IniFile(files_names[5]);
+            IniFile FollowBoss = new IniFile(files_names[3]);
             Process proc = (Process)sendingProcess;
 
             try
@@ -702,8 +702,9 @@ namespace LAUNCHER_FANBOT
 
             try
             {
-                string bots = files_names[1];
+                string bots = files_names[0];
                 string start = string.Empty;
+                EngineWork.MSB_Information($"{files_names[0]}", "");
 
                 if (radioButton_start_classic_plus.Checked)
                 {
@@ -712,7 +713,7 @@ namespace LAUNCHER_FANBOT
                     if (color == "0") color = EngineWork.random.Next(0, comboBox_text_colors.Items.Count).ToString();
 
                     bots = "cmd";
-                    start = $"/c chcp 65001 & color {color} & {files_names[1]} -t {token} -i {id} -f ./cfg/server/{server}.cfg";
+                    start = $"/c chcp 65001 & color {color} & {files_names[0]} -t {token} -i {id} -f ./cfg/server/{server}.cfg & pause";
                 }
                 else if (radioButton_start_classic.Checked) start = $"-t {token} -i {id} -f ./cfg/server/{server}.cfg";
 
@@ -807,8 +808,8 @@ namespace LAUNCHER_FANBOT
         {
             try
             {
-                if (File.Exists(files_names[2])) File.Delete(files_names[2]);
-                IniFile settings_menu = new IniFile(files_names[2]);
+                if (File.Exists(files_names[1])) File.Delete(files_names[1]);
+                IniFile settings_menu = new IniFile(files_names[1]);
 
                 //Ключи
                 settings_menu.Write(radioButton_levak_keys.Name, radioButton_levak_keys.Checked.ToString(), sect);
@@ -865,16 +866,9 @@ namespace LAUNCHER_FANBOT
         {
             try
             {
-                if (File.Exists(files_names[4]))
+                if (File.Exists(files_names[1]))
                 {
-                    IniFile ini_files = new IniFile(files_names[4]);
-                    files_names[0] = Path.GetFullPath(ini_files.Read("launcher", "FILES"));
-                    files_names[1] = Path.GetFullPath(ini_files.Read("wb", "FILES"));
-                }
-
-                if (File.Exists(files_names[2]))
-                {
-                    IniFile settings_menu = new IniFile(files_names[2]);
+                    IniFile settings_menu = new IniFile(files_names[1]);
                     //Ключи
                     radioButton_levak_keys.Checked = bool.Parse(settings_menu.Read(radioButton_levak_keys.Name, sect));
                     radioButton_my_keys.Checked = bool.Parse(settings_menu.Read(radioButton_my_keys.Name, sect));
@@ -985,8 +979,8 @@ namespace LAUNCHER_FANBOT
 
             try
             {
-                IniFile wb_settings = new IniFile(files_names[5]);
-                if (!File.Exists(files_names[5]))
+                IniFile wb_settings = new IniFile(files_names[3]);
+                if (!File.Exists(files_names[3]))
                 {
                     //Дефолт настройки
                     wb_settings.Write("wb_accept_friend_requests", "1", sett);
@@ -1059,7 +1053,7 @@ namespace LAUNCHER_FANBOT
         {
             try
             {
-                IniFile setting_bots = new IniFile(files_names[5]);
+                IniFile setting_bots = new IniFile(files_names[3]);
 
                 setting_bots.Write("wb_accept_friend_requests", ignor_friends.Checked ? "0" : "1", sett);
                 setting_bots.Write("wb_postpone_friend_requests", ignor_friends_invite.Checked ? "1" : "0", sett);

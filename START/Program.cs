@@ -16,10 +16,6 @@ namespace START
         [STAThread]
         private static void Main()
         {
-            IniFile ini_name = new IniFile(dir + "files_names.ini");
-            files[0] = ini_name.Read("launcher", "FILES");
-            files[1] = ini_name.Read("wb", "FILES");
-
             //Детект Игры
             if (!File.Exists("NO_CHECK.fanbot") && Process.GetProcessesByName("Game").Length > 0 || Process.GetProcessesByName("GameCenter").Length > 0)
                 Environment.Exit(0);
