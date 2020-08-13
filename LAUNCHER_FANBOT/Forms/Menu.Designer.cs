@@ -136,6 +136,13 @@ namespace LAUNCHER_FANBOT
             this.page_bot_global_settings = new System.Windows.Forms.TabPage();
             this.label_settings_text_color = new System.Windows.Forms.Label();
             this.comboBox_text_colors = new System.Windows.Forms.ComboBox();
+            this.groupBox_pin = new System.Windows.Forms.GroupBox();
+            this.fon_start = new System.Windows.Forms.RadioButton();
+            this.pinvoke_no_svor = new System.Windows.Forms.RadioButton();
+            this.pinvoke_svor = new System.Windows.Forms.RadioButton();
+            this.groupBox_settings_get_key = new System.Windows.Forms.GroupBox();
+            this.radioButton_my_keys = new System.Windows.Forms.RadioButton();
+            this.radioButton_levak_keys = new System.Windows.Forms.RadioButton();
             this.comboBox_languages = new System.Windows.Forms.ComboBox();
             this.label_settings_lang = new System.Windows.Forms.Label();
             this.groupBox_settings_logs_bots = new System.Windows.Forms.GroupBox();
@@ -146,9 +153,6 @@ namespace LAUNCHER_FANBOT
             this.hScrollBar_transparency = new System.Windows.Forms.HScrollBar();
             this.groupBox_settings_color_backround = new System.Windows.Forms.GroupBox();
             this.button_color_fon = new System.Windows.Forms.Button();
-            this.groupBox_settings_get_key = new System.Windows.Forms.GroupBox();
-            this.radioButton_my_keys = new System.Windows.Forms.RadioButton();
-            this.radioButton_levak_keys = new System.Windows.Forms.RadioButton();
             this.groupBox_settings_color_button = new System.Windows.Forms.GroupBox();
             this.button_colors_text = new System.Windows.Forms.Button();
             this.button_colors_fon = new System.Windows.Forms.Button();
@@ -156,10 +160,6 @@ namespace LAUNCHER_FANBOT
             this.button_setting_font = new System.Windows.Forms.Button();
             this.button_color_console = new System.Windows.Forms.Button();
             this.button_delete_setting = new System.Windows.Forms.Button();
-            this.groupBox_pin = new System.Windows.Forms.GroupBox();
-            this.fon_start = new System.Windows.Forms.RadioButton();
-            this.pinvoke_no_svor = new System.Windows.Forms.RadioButton();
-            this.pinvoke_svor = new System.Windows.Forms.RadioButton();
             this.groupBox_settings_bots = new System.Windows.Forms.GroupBox();
             this.button_settings_bots = new System.Windows.Forms.Button();
             this.groupBox_settings_start_console = new System.Windows.Forms.GroupBox();
@@ -244,13 +244,13 @@ namespace LAUNCHER_FANBOT
             this.groupBox_start_all_bots.SuspendLayout();
             this.groupBox_get_server.SuspendLayout();
             this.page_bot_global_settings.SuspendLayout();
+            this.groupBox_pin.SuspendLayout();
+            this.groupBox_settings_get_key.SuspendLayout();
             this.groupBox_settings_logs_bots.SuspendLayout();
             this.groupBox_settings_transparency.SuspendLayout();
             this.groupBox_settings_color_backround.SuspendLayout();
-            this.groupBox_settings_get_key.SuspendLayout();
             this.groupBox_settings_color_button.SuspendLayout();
             this.groupBox_settings_color_backround_console.SuspendLayout();
-            this.groupBox_pin.SuspendLayout();
             this.groupBox_settings_bots.SuspendLayout();
             this.groupBox_settings_start_console.SuspendLayout();
             this.groupBox_settings_data_acc.SuspendLayout();
@@ -1551,12 +1551,12 @@ namespace LAUNCHER_FANBOT
             // 
             // label_settings_text_color
             // 
-            this.label_settings_text_color.AutoSize = true;
-            this.label_settings_text_color.Location = new System.Drawing.Point(5, 39);
+            this.label_settings_text_color.Location = new System.Drawing.Point(5, 36);
             this.label_settings_text_color.Name = "label_settings_text_color";
-            this.label_settings_text_color.Size = new System.Drawing.Size(104, 13);
+            this.label_settings_text_color.Size = new System.Drawing.Size(104, 21);
             this.label_settings_text_color.TabIndex = 48;
             this.label_settings_text_color.Text = "Цвет текста в cmd:";
+            this.label_settings_text_color.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // comboBox_text_colors
             // 
@@ -1579,27 +1579,104 @@ namespace LAUNCHER_FANBOT
             this.comboBox_text_colors.TabIndex = 47;
             this.comboBox_text_colors.Text = "Цвет текста..";
             // 
+            // groupBox_pin
+            // 
+            this.groupBox_pin.Controls.Add(this.fon_start);
+            this.groupBox_pin.Controls.Add(this.pinvoke_no_svor);
+            this.groupBox_pin.Controls.Add(this.pinvoke_svor);
+            this.groupBox_pin.Enabled = false;
+            this.groupBox_pin.Location = new System.Drawing.Point(226, 123);
+            this.groupBox_pin.Name = "groupBox_pin";
+            this.groupBox_pin.Size = new System.Drawing.Size(142, 78);
+            this.groupBox_pin.TabIndex = 16;
+            this.groupBox_pin.TabStop = false;
+            this.groupBox_pin.Text = "Режим pinvoke";
+            // 
+            // fon_start
+            // 
+            this.fon_start.AutoSize = true;
+            this.fon_start.Location = new System.Drawing.Point(7, 55);
+            this.fon_start.Name = "fon_start";
+            this.fon_start.Size = new System.Drawing.Size(111, 17);
+            this.fon_start.TabIndex = 7;
+            this.fon_start.Text = "Фоновый запуск";
+            this.fon_start.UseVisualStyleBackColor = true;
+            // 
+            // pinvoke_no_svor
+            // 
+            this.pinvoke_no_svor.AutoSize = true;
+            this.pinvoke_no_svor.Checked = true;
+            this.pinvoke_no_svor.Location = new System.Drawing.Point(7, 35);
+            this.pinvoke_no_svor.Name = "pinvoke_no_svor";
+            this.pinvoke_no_svor.Size = new System.Drawing.Size(110, 17);
+            this.pinvoke_no_svor.TabIndex = 6;
+            this.pinvoke_no_svor.TabStop = true;
+            this.pinvoke_no_svor.Text = "Не сворачивать";
+            this.pinvoke_no_svor.UseVisualStyleBackColor = true;
+            // 
+            // pinvoke_svor
+            // 
+            this.pinvoke_svor.AutoSize = true;
+            this.pinvoke_svor.Location = new System.Drawing.Point(7, 16);
+            this.pinvoke_svor.Name = "pinvoke_svor";
+            this.pinvoke_svor.Size = new System.Drawing.Size(95, 17);
+            this.pinvoke_svor.TabIndex = 5;
+            this.pinvoke_svor.Text = "Сворачивать";
+            this.pinvoke_svor.UseVisualStyleBackColor = true;
+            // 
+            // groupBox_settings_get_key
+            // 
+            this.groupBox_settings_get_key.Controls.Add(this.radioButton_my_keys);
+            this.groupBox_settings_get_key.Controls.Add(this.radioButton_levak_keys);
+            this.groupBox_settings_get_key.Location = new System.Drawing.Point(374, 123);
+            this.groupBox_settings_get_key.Name = "groupBox_settings_get_key";
+            this.groupBox_settings_get_key.Size = new System.Drawing.Size(85, 78);
+            this.groupBox_settings_get_key.TabIndex = 8;
+            this.groupBox_settings_get_key.TabStop = false;
+            this.groupBox_settings_get_key.Text = "Ключи";
+            // 
+            // radioButton_my_keys
+            // 
+            this.radioButton_my_keys.Location = new System.Drawing.Point(7, 38);
+            this.radioButton_my_keys.Name = "radioButton_my_keys";
+            this.radioButton_my_keys.Size = new System.Drawing.Size(67, 33);
+            this.radioButton_my_keys.TabIndex = 2;
+            this.radioButton_my_keys.Text = "Свои ключи";
+            this.radioButton_my_keys.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_levak_keys
+            // 
+            this.radioButton_levak_keys.AutoSize = true;
+            this.radioButton_levak_keys.Checked = true;
+            this.radioButton_levak_keys.Location = new System.Drawing.Point(7, 20);
+            this.radioButton_levak_keys.Name = "radioButton_levak_keys";
+            this.radioButton_levak_keys.Size = new System.Drawing.Size(53, 17);
+            this.radioButton_levak_keys.TabIndex = 0;
+            this.radioButton_levak_keys.TabStop = true;
+            this.radioButton_levak_keys.Text = "Levak";
+            this.radioButton_levak_keys.UseVisualStyleBackColor = true;
+            // 
             // comboBox_languages
             // 
             this.comboBox_languages.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBox_languages.FormattingEnabled = true;
             this.comboBox_languages.Items.AddRange(new object[] {
             "default (russian)"});
-            this.comboBox_languages.Location = new System.Drawing.Point(66, 9);
+            this.comboBox_languages.Location = new System.Drawing.Point(77, 9);
             this.comboBox_languages.Name = "comboBox_languages";
-            this.comboBox_languages.Size = new System.Drawing.Size(152, 21);
+            this.comboBox_languages.Size = new System.Drawing.Size(141, 21);
             this.comboBox_languages.TabIndex = 2;
             this.comboBox_languages.Text = "Файл перевода..";
             this.comboBox_languages.SelectedIndexChanged += new System.EventHandler(this.comboBox_languages_SelectedIndexChanged);
             // 
             // label_settings_lang
             // 
-            this.label_settings_lang.AutoSize = true;
-            this.label_settings_lang.Location = new System.Drawing.Point(5, 12);
+            this.label_settings_lang.Location = new System.Drawing.Point(5, 9);
             this.label_settings_lang.Name = "label_settings_lang";
-            this.label_settings_lang.Size = new System.Drawing.Size(36, 13);
+            this.label_settings_lang.Size = new System.Drawing.Size(66, 21);
             this.label_settings_lang.TabIndex = 46;
             this.label_settings_lang.Text = "Язык:";
+            this.label_settings_lang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupBox_settings_logs_bots
             // 
@@ -1639,9 +1716,9 @@ namespace LAUNCHER_FANBOT
             // 
             this.groupBox_settings_transparency.Controls.Add(this.label_n);
             this.groupBox_settings_transparency.Controls.Add(this.hScrollBar_transparency);
-            this.groupBox_settings_transparency.Location = new System.Drawing.Point(5, 310);
+            this.groupBox_settings_transparency.Location = new System.Drawing.Point(5, 312);
             this.groupBox_settings_transparency.Name = "groupBox_settings_transparency";
-            this.groupBox_settings_transparency.Size = new System.Drawing.Size(215, 34);
+            this.groupBox_settings_transparency.Size = new System.Drawing.Size(215, 32);
             this.groupBox_settings_transparency.TabIndex = 21;
             this.groupBox_settings_transparency.TabStop = false;
             this.groupBox_settings_transparency.Text = "Непрозрачноть меню";
@@ -1688,38 +1765,6 @@ namespace LAUNCHER_FANBOT
             this.button_color_fon.Text = "ЦВЕТ ФОНА";
             this.button_color_fon.UseVisualStyleBackColor = true;
             this.button_color_fon.Click += new System.EventHandler(this.button_color_fon_Click);
-            // 
-            // groupBox_settings_get_key
-            // 
-            this.groupBox_settings_get_key.Controls.Add(this.radioButton_my_keys);
-            this.groupBox_settings_get_key.Controls.Add(this.radioButton_levak_keys);
-            this.groupBox_settings_get_key.Location = new System.Drawing.Point(374, 123);
-            this.groupBox_settings_get_key.Name = "groupBox_settings_get_key";
-            this.groupBox_settings_get_key.Size = new System.Drawing.Size(85, 78);
-            this.groupBox_settings_get_key.TabIndex = 8;
-            this.groupBox_settings_get_key.TabStop = false;
-            this.groupBox_settings_get_key.Text = "Ключи";
-            // 
-            // radioButton_my_keys
-            // 
-            this.radioButton_my_keys.Location = new System.Drawing.Point(7, 38);
-            this.radioButton_my_keys.Name = "radioButton_my_keys";
-            this.radioButton_my_keys.Size = new System.Drawing.Size(67, 33);
-            this.radioButton_my_keys.TabIndex = 2;
-            this.radioButton_my_keys.Text = "Свои ключи";
-            this.radioButton_my_keys.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_levak_keys
-            // 
-            this.radioButton_levak_keys.AutoSize = true;
-            this.radioButton_levak_keys.Checked = true;
-            this.radioButton_levak_keys.Location = new System.Drawing.Point(7, 20);
-            this.radioButton_levak_keys.Name = "radioButton_levak_keys";
-            this.radioButton_levak_keys.Size = new System.Drawing.Size(53, 17);
-            this.radioButton_levak_keys.TabIndex = 0;
-            this.radioButton_levak_keys.TabStop = true;
-            this.radioButton_levak_keys.Text = "Levak";
-            this.radioButton_levak_keys.UseVisualStyleBackColor = true;
             // 
             // groupBox_settings_color_button
             // 
@@ -1797,51 +1842,6 @@ namespace LAUNCHER_FANBOT
             this.button_delete_setting.Text = "СБРОСИТЬ ВСЕ НАСТРОЙКИ";
             this.button_delete_setting.UseVisualStyleBackColor = true;
             this.button_delete_setting.Click += new System.EventHandler(this.button_delete_setting_Click);
-            // 
-            // groupBox_pin
-            // 
-            this.groupBox_pin.Controls.Add(this.fon_start);
-            this.groupBox_pin.Controls.Add(this.pinvoke_no_svor);
-            this.groupBox_pin.Controls.Add(this.pinvoke_svor);
-            this.groupBox_pin.Enabled = false;
-            this.groupBox_pin.Location = new System.Drawing.Point(226, 123);
-            this.groupBox_pin.Name = "groupBox_pin";
-            this.groupBox_pin.Size = new System.Drawing.Size(142, 78);
-            this.groupBox_pin.TabIndex = 16;
-            this.groupBox_pin.TabStop = false;
-            this.groupBox_pin.Text = "Режим pinvoke";
-            // 
-            // fon_start
-            // 
-            this.fon_start.AutoSize = true;
-            this.fon_start.Location = new System.Drawing.Point(7, 55);
-            this.fon_start.Name = "fon_start";
-            this.fon_start.Size = new System.Drawing.Size(111, 17);
-            this.fon_start.TabIndex = 7;
-            this.fon_start.Text = "Фоновый запуск";
-            this.fon_start.UseVisualStyleBackColor = true;
-            // 
-            // pinvoke_no_svor
-            // 
-            this.pinvoke_no_svor.AutoSize = true;
-            this.pinvoke_no_svor.Checked = true;
-            this.pinvoke_no_svor.Location = new System.Drawing.Point(7, 35);
-            this.pinvoke_no_svor.Name = "pinvoke_no_svor";
-            this.pinvoke_no_svor.Size = new System.Drawing.Size(110, 17);
-            this.pinvoke_no_svor.TabIndex = 6;
-            this.pinvoke_no_svor.TabStop = true;
-            this.pinvoke_no_svor.Text = "Не сворачивать";
-            this.pinvoke_no_svor.UseVisualStyleBackColor = true;
-            // 
-            // pinvoke_svor
-            // 
-            this.pinvoke_svor.AutoSize = true;
-            this.pinvoke_svor.Location = new System.Drawing.Point(7, 16);
-            this.pinvoke_svor.Name = "pinvoke_svor";
-            this.pinvoke_svor.Size = new System.Drawing.Size(95, 17);
-            this.pinvoke_svor.TabIndex = 5;
-            this.pinvoke_svor.Text = "Сворачивать";
-            this.pinvoke_svor.UseVisualStyleBackColor = true;
             // 
             // groupBox_settings_bots
             // 
@@ -2442,18 +2442,17 @@ namespace LAUNCHER_FANBOT
             this.groupBox_start_all_bots.PerformLayout();
             this.groupBox_get_server.ResumeLayout(false);
             this.page_bot_global_settings.ResumeLayout(false);
-            this.page_bot_global_settings.PerformLayout();
+            this.groupBox_pin.ResumeLayout(false);
+            this.groupBox_pin.PerformLayout();
+            this.groupBox_settings_get_key.ResumeLayout(false);
+            this.groupBox_settings_get_key.PerformLayout();
             this.groupBox_settings_logs_bots.ResumeLayout(false);
             this.groupBox_settings_logs_bots.PerformLayout();
             this.groupBox_settings_transparency.ResumeLayout(false);
             this.groupBox_settings_transparency.PerformLayout();
             this.groupBox_settings_color_backround.ResumeLayout(false);
-            this.groupBox_settings_get_key.ResumeLayout(false);
-            this.groupBox_settings_get_key.PerformLayout();
             this.groupBox_settings_color_button.ResumeLayout(false);
             this.groupBox_settings_color_backround_console.ResumeLayout(false);
-            this.groupBox_pin.ResumeLayout(false);
-            this.groupBox_pin.PerformLayout();
             this.groupBox_settings_bots.ResumeLayout(false);
             this.groupBox_settings_start_console.ResumeLayout(false);
             this.groupBox_settings_start_console.PerformLayout();
