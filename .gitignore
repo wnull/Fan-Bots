@@ -13,8 +13,10 @@ START/[Bb]in/
 [Qq][Uu][Ee][Rr][Yy][Cc][Aa][Cc][Hh][Ee]/
 [Aa][Cc][Cc][Oo][Uu][Nn][Tt][Ss].*
 [Mm]ail[Rr]u[Aa]uth[Ll]og.*
-*.log
+__LANG.*
 auto_command.txt
+*.log
+*.config
 
 # User-specific files
 *.rsuser
