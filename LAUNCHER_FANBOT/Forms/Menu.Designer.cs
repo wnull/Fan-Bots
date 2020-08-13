@@ -1587,7 +1587,7 @@ namespace LAUNCHER_FANBOT
             this.groupBox_pin.Enabled = false;
             this.groupBox_pin.Location = new System.Drawing.Point(226, 123);
             this.groupBox_pin.Name = "groupBox_pin";
-            this.groupBox_pin.Size = new System.Drawing.Size(142, 78);
+            this.groupBox_pin.Size = new System.Drawing.Size(140, 78);
             this.groupBox_pin.TabIndex = 16;
             this.groupBox_pin.TabStop = false;
             this.groupBox_pin.Text = "Режим pinvoke";
@@ -1682,7 +1682,7 @@ namespace LAUNCHER_FANBOT
             // 
             this.groupBox_settings_logs_bots.Controls.Add(this.button_clear_logs);
             this.groupBox_settings_logs_bots.Controls.Add(this.checkBox_save_logs);
-            this.groupBox_settings_logs_bots.Location = new System.Drawing.Point(3, 204);
+            this.groupBox_settings_logs_bots.Location = new System.Drawing.Point(3, 203);
             this.groupBox_settings_logs_bots.Name = "groupBox_settings_logs_bots";
             this.groupBox_settings_logs_bots.Size = new System.Drawing.Size(215, 53);
             this.groupBox_settings_logs_bots.TabIndex = 22;
@@ -1716,7 +1716,7 @@ namespace LAUNCHER_FANBOT
             // 
             this.groupBox_settings_transparency.Controls.Add(this.label_n);
             this.groupBox_settings_transparency.Controls.Add(this.hScrollBar_transparency);
-            this.groupBox_settings_transparency.Location = new System.Drawing.Point(5, 312);
+            this.groupBox_settings_transparency.Location = new System.Drawing.Point(5, 310);
             this.groupBox_settings_transparency.Name = "groupBox_settings_transparency";
             this.groupBox_settings_transparency.Size = new System.Drawing.Size(215, 32);
             this.groupBox_settings_transparency.TabIndex = 21;
@@ -1748,7 +1748,7 @@ namespace LAUNCHER_FANBOT
             // groupBox_settings_color_backround
             // 
             this.groupBox_settings_color_backround.Controls.Add(this.button_color_fon);
-            this.groupBox_settings_color_backround.Location = new System.Drawing.Point(226, 256);
+            this.groupBox_settings_color_backround.Location = new System.Drawing.Point(226, 258);
             this.groupBox_settings_color_backround.Name = "groupBox_settings_color_backround";
             this.groupBox_settings_color_backround.Size = new System.Drawing.Size(233, 50);
             this.groupBox_settings_color_backround.TabIndex = 20;
@@ -1770,7 +1770,7 @@ namespace LAUNCHER_FANBOT
             // 
             this.groupBox_settings_color_button.Controls.Add(this.button_colors_text);
             this.groupBox_settings_color_button.Controls.Add(this.button_colors_fon);
-            this.groupBox_settings_color_button.Location = new System.Drawing.Point(5, 256);
+            this.groupBox_settings_color_button.Location = new System.Drawing.Point(5, 258);
             this.groupBox_settings_color_button.Name = "groupBox_settings_color_button";
             this.groupBox_settings_color_button.Size = new System.Drawing.Size(215, 50);
             this.groupBox_settings_color_button.TabIndex = 19;
@@ -1803,7 +1803,7 @@ namespace LAUNCHER_FANBOT
             // 
             this.groupBox_settings_color_backround_console.Controls.Add(this.button_setting_font);
             this.groupBox_settings_color_backround_console.Controls.Add(this.button_color_console);
-            this.groupBox_settings_color_backround_console.Location = new System.Drawing.Point(226, 204);
+            this.groupBox_settings_color_backround_console.Location = new System.Drawing.Point(226, 203);
             this.groupBox_settings_color_backround_console.Name = "groupBox_settings_color_backround_console";
             this.groupBox_settings_color_backround_console.Size = new System.Drawing.Size(233, 53);
             this.groupBox_settings_color_backround_console.TabIndex = 17;
@@ -1835,9 +1835,9 @@ namespace LAUNCHER_FANBOT
             // button_delete_setting
             // 
             this.button_delete_setting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_delete_setting.Location = new System.Drawing.Point(226, 310);
+            this.button_delete_setting.Location = new System.Drawing.Point(226, 314);
             this.button_delete_setting.Name = "button_delete_setting";
-            this.button_delete_setting.Size = new System.Drawing.Size(233, 34);
+            this.button_delete_setting.Size = new System.Drawing.Size(233, 28);
             this.button_delete_setting.TabIndex = 15;
             this.button_delete_setting.Text = "СБРОСИТЬ ВСЕ НАСТРОЙКИ";
             this.button_delete_setting.UseVisualStyleBackColor = true;
