@@ -1529,16 +1529,16 @@ namespace LAUNCHER_FANBOT
             this.page_bot_global_settings.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.page_bot_global_settings.Controls.Add(this.label_settings_text_color);
             this.page_bot_global_settings.Controls.Add(this.comboBox_text_colors);
+            this.page_bot_global_settings.Controls.Add(this.groupBox_pin);
+            this.page_bot_global_settings.Controls.Add(this.groupBox_settings_get_key);
             this.page_bot_global_settings.Controls.Add(this.comboBox_languages);
             this.page_bot_global_settings.Controls.Add(this.label_settings_lang);
             this.page_bot_global_settings.Controls.Add(this.groupBox_settings_logs_bots);
             this.page_bot_global_settings.Controls.Add(this.groupBox_settings_transparency);
             this.page_bot_global_settings.Controls.Add(this.groupBox_settings_color_backround);
-            this.page_bot_global_settings.Controls.Add(this.groupBox_settings_get_key);
             this.page_bot_global_settings.Controls.Add(this.groupBox_settings_color_button);
             this.page_bot_global_settings.Controls.Add(this.groupBox_settings_color_backround_console);
             this.page_bot_global_settings.Controls.Add(this.button_delete_setting);
-            this.page_bot_global_settings.Controls.Add(this.groupBox_pin);
             this.page_bot_global_settings.Controls.Add(this.groupBox_settings_bots);
             this.page_bot_global_settings.Controls.Add(this.groupBox_settings_start_console);
             this.page_bot_global_settings.Controls.Add(this.groupBox_settings_data_acc);
@@ -1693,19 +1693,18 @@ namespace LAUNCHER_FANBOT
             // 
             this.groupBox_settings_get_key.Controls.Add(this.radioButton_my_keys);
             this.groupBox_settings_get_key.Controls.Add(this.radioButton_levak_keys);
-            this.groupBox_settings_get_key.Location = new System.Drawing.Point(356, 123);
+            this.groupBox_settings_get_key.Location = new System.Drawing.Point(374, 123);
             this.groupBox_settings_get_key.Name = "groupBox_settings_get_key";
-            this.groupBox_settings_get_key.Size = new System.Drawing.Size(103, 78);
+            this.groupBox_settings_get_key.Size = new System.Drawing.Size(85, 78);
             this.groupBox_settings_get_key.TabIndex = 8;
             this.groupBox_settings_get_key.TabStop = false;
             this.groupBox_settings_get_key.Text = "Ключи";
             // 
             // radioButton_my_keys
             // 
-            this.radioButton_my_keys.AutoSize = true;
-            this.radioButton_my_keys.Location = new System.Drawing.Point(7, 45);
+            this.radioButton_my_keys.Location = new System.Drawing.Point(7, 38);
             this.radioButton_my_keys.Name = "radioButton_my_keys";
-            this.radioButton_my_keys.Size = new System.Drawing.Size(90, 17);
+            this.radioButton_my_keys.Size = new System.Drawing.Size(67, 33);
             this.radioButton_my_keys.TabIndex = 2;
             this.radioButton_my_keys.Text = "Свои ключи";
             this.radioButton_my_keys.UseVisualStyleBackColor = true;
@@ -1714,7 +1713,7 @@ namespace LAUNCHER_FANBOT
             // 
             this.radioButton_levak_keys.AutoSize = true;
             this.radioButton_levak_keys.Checked = true;
-            this.radioButton_levak_keys.Location = new System.Drawing.Point(7, 27);
+            this.radioButton_levak_keys.Location = new System.Drawing.Point(7, 20);
             this.radioButton_levak_keys.Name = "radioButton_levak_keys";
             this.radioButton_levak_keys.Size = new System.Drawing.Size(53, 17);
             this.radioButton_levak_keys.TabIndex = 0;
@@ -1807,7 +1806,7 @@ namespace LAUNCHER_FANBOT
             this.groupBox_pin.Enabled = false;
             this.groupBox_pin.Location = new System.Drawing.Point(226, 123);
             this.groupBox_pin.Name = "groupBox_pin";
-            this.groupBox_pin.Size = new System.Drawing.Size(124, 78);
+            this.groupBox_pin.Size = new System.Drawing.Size(142, 78);
             this.groupBox_pin.TabIndex = 16;
             this.groupBox_pin.TabStop = false;
             this.groupBox_pin.Text = "Режим pinvoke";
