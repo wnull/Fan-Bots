@@ -14,7 +14,7 @@ START/[Bb]in/
 [Aa][Cc][Cc][Oo][Uu][Nn][Tt][Ss].*
 [Mm]ail[Rr]u[Aa]uth[Ll]og.*
 __LANG.*
-auto_command.txt
+auto_command.*
 *.[Ll][Oo][Gg]
 *.config
 
