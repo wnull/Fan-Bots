@@ -47,6 +47,19 @@ namespace LAUNCHER_FANBOT
 
         #endregion Переменные
 
+
+#if DEBUG
+        public void GET_CONTROLS_LANG(Control control_cont, string name)
+        {
+            try
+            {
+                File.Delete("__LANG.ini");
+                EngineWork.GetAllControls(control_cont, new IniFile("__LANG.ini"), name, true);
+            }
+            catch (Exception er) { EngineWork.MSB_Error("GET_CONTROLS_LANG" + er); }
+        }
+#endif
+
         public Menu()
         {
             InitializeComponent();
@@ -61,6 +74,10 @@ namespace LAUNCHER_FANBOT
             checkBox_load_data = new CheckBox[] { checkBox_load_data_1, checkBox_load_data_2, checkBox_load_data_3, checkBox_load_data_4, checkBox_load_data_5 };
             richTextBoxes = new RichTextBox[] { richTextBox1, richTextBox2, richTextBox3, richTextBox4, richTextBox5 };
             textBox_cmds = new TextBox[] { textBox_cmd1, textBox_cmd2, textBox_cmd3, textBox_cmd4, textBox_cmd5, textBox_cmd_all };
+
+#if DEBUG
+            GET_CONTROLS_LANG(this, this.Name);
+#endif
 
             comboBox_languages.SelectedIndex = 0;
             comboBox_text_colors.SelectedIndex = 0;
@@ -134,9 +151,9 @@ namespace LAUNCHER_FANBOT
             SettingsSave_settings_bots();
         }
 
-        #region tabControl_main
+#region tabControl_main
 
-        #region FORM_CONTROLS
+#region FORM_CONTROLS
 
         private void button_delete_setting_Click(object sender, EventArgs e)
         {
@@ -513,9 +530,9 @@ namespace LAUNCHER_FANBOT
             }
         }
 
-        #endregion FORM_CONTROLS
+#endregion FORM_CONTROLS
 
-        #region OTHER
+#region OTHER
 
         private byte serverBox(ComboBox c) => c.SelectedIndex != -1 ? (byte)c.SelectedIndex : (byte)8;
 
@@ -984,11 +1001,11 @@ namespace LAUNCHER_FANBOT
             catch (Exception er) { EngineWork.MSB_Error(er.ToString()); }
         }
 
-        #endregion OTHER
+#endregion OTHER
 
-        #endregion tabControl_main
+#endregion tabControl_main
 
-        #region panel_page_settings_bots
+#region panel_page_settings_bots
 
         private int line = 0;
         private void pictureBox_clear_command_Click(object sender, EventArgs e)
@@ -1030,6 +1047,6 @@ namespace LAUNCHER_FANBOT
             catch (Exception er) { EngineWork.MSB_Error(er.ToString()); }
         }
 
-        #endregion panel_page_settings_bots
+#endregion panel_page_settings_bots
     }
 }
