@@ -911,6 +911,7 @@ namespace LAUNCHER_FANBOT
                         comboBox_languages.Text = LANGUAGE;
                         EngineWork.Translation(this, true, LANGUAGE, Name);
                     }
+                    LoadPrms();
 
                     //Цвет текста консоли
                     comboBox_text_colors.SelectedIndex = Convert.ToInt32(settings_menu.Read(comboBox_text_colors.Name, sect).Length > 0 ? settings_menu.Read(comboBox_text_colors.Name, sect) : "0");
@@ -941,32 +942,6 @@ namespace LAUNCHER_FANBOT
                     }
                 }
                 else SaveSettings(null, null);
-
-                EngineWork.TextBoxWatermarkExtensionMethod.SetWatermark(textBox_auto_command, EngineWork.prms[0]);
-                EngineWork.TextBoxWatermarkExtensionMethod.SetWatermark(textBox_nick, EngineWork.prms[1]);
-                foreach (TextBox textbox in textBoxes_l) EngineWork.TextBoxWatermarkExtensionMethod.SetWatermark(textbox, EngineWork.prms[2]);
-                foreach (TextBox textbox in textBoxes_p) EngineWork.TextBoxWatermarkExtensionMethod.SetWatermark(textbox, EngineWork.prms[3]);
-                foreach (TextBox textbox in textBox_cmds) EngineWork.TextBoxWatermarkExtensionMethod.SetWatermark(textbox, EngineWork.prms[4]);
-                foreach (ComboBox combobox in comboBoxes)
-                {
-                    combobox.Items[0] = EngineWork.prms[5];
-                    combobox.Items[1] = EngineWork.prms[6];
-                    combobox.Items[2] = EngineWork.prms[7];
-                    combobox.Items[3] = EngineWork.prms[8];
-                    combobox.Items[4] = EngineWork.prms[9];
-                    combobox.Items[5] = EngineWork.prms[10];
-                    combobox.Items[6] = EngineWork.prms[11];
-                }
-                comboBox_text_colors.Items[0] = EngineWork.prms[12];
-                comboBox_text_colors.Items[1] = EngineWork.prms[13];
-                comboBox_text_colors.Items[2] = EngineWork.prms[14];
-                comboBox_text_colors.Items[3] = EngineWork.prms[15];
-                comboBox_text_colors.Items[4] = EngineWork.prms[16];
-                comboBox_text_colors.Items[5] = EngineWork.prms[17];
-                comboBox_text_colors.Items[6] = EngineWork.prms[18];
-                comboBox_text_colors.Items[7] = EngineWork.prms[19];
-                comboBox_text_colors.Items[8] = EngineWork.prms[20];
-                comboBox_text_colors.Items[9] = EngineWork.prms[21];
 
                 label_ver.Text = $"v{Application.ProductVersion}";
             }
@@ -1003,26 +978,8 @@ namespace LAUNCHER_FANBOT
                 foreach (TextBox textbox in textBoxes_l) EngineWork.TextBoxWatermarkExtensionMethod.SetWatermark(textbox, EngineWork.prms[2]);
                 foreach (TextBox textbox in textBoxes_p) EngineWork.TextBoxWatermarkExtensionMethod.SetWatermark(textbox, EngineWork.prms[3]);
                 foreach (TextBox textbox in textBox_cmds) EngineWork.TextBoxWatermarkExtensionMethod.SetWatermark(textbox, EngineWork.prms[4]);
-                foreach (ComboBox combobox in comboBoxes)
-                {
-                    combobox.Items[0] = EngineWork.prms[5];
-                    combobox.Items[1] = EngineWork.prms[6];
-                    combobox.Items[2] = EngineWork.prms[7];
-                    combobox.Items[3] = EngineWork.prms[8];
-                    combobox.Items[4] = EngineWork.prms[9];
-                    combobox.Items[5] = EngineWork.prms[10];
-                    combobox.Items[6] = EngineWork.prms[11];
-                }
-                comboBox_text_colors.Items[0] = EngineWork.prms[12];
-                comboBox_text_colors.Items[1] = EngineWork.prms[13];
-                comboBox_text_colors.Items[2] = EngineWork.prms[14];
-                comboBox_text_colors.Items[3] = EngineWork.prms[15];
-                comboBox_text_colors.Items[4] = EngineWork.prms[16];
-                comboBox_text_colors.Items[5] = EngineWork.prms[17];
-                comboBox_text_colors.Items[6] = EngineWork.prms[18];
-                comboBox_text_colors.Items[7] = EngineWork.prms[19];
-                comboBox_text_colors.Items[8] = EngineWork.prms[20];
-                comboBox_text_colors.Items[9] = EngineWork.prms[21];
+                foreach (ComboBox combobox in comboBoxes) for (int a = 0, b = 5; a < combobox.Items.Count; a++, b++) combobox.Items[a] = EngineWork.prms[b];
+                for (int a = 0, b = 12; a < comboBox_text_colors.Items.Count; a++, b++) comboBox_text_colors.Items[a] = EngineWork.prms[b];
             }
             catch (Exception er) { EngineWork.MSB_Error(er.ToString()); }
         }
