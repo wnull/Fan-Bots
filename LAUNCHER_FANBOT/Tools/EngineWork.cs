@@ -98,7 +98,7 @@ namespace LAUNCHER_FANBOT
             }
             else if (one_start == true)
             {
-                new IniFile(menu.files_names[2]).Write(menu.comboBox_languages.Name, "default (russian)", menu.sect);
+                new IniFile(menu.files_names[3]).Write(menu.comboBox_languages.Name, "default (russian)", menu.sect);
                 Process.Start(Application.ProductName + ".exe");
                 Environment.Exit(0);
             }
