@@ -16,7 +16,7 @@ namespace LAUNCHER_FANBOT
     {
         public readonly Random random = new Random(Environment.TickCount);
         private bool one_start = false;
-        public List<string> prms = new List<string>()
+        public string[] prms = new string[] 
         {
             "Введите автоматическую команду",
             "Введите ник",
@@ -41,10 +41,12 @@ namespace LAUNCHER_FANBOT
             "Желтый",
             "Белый",
             "Серый",
-            "Светло-синий",
+            "Светло-синий"
         };
+
         public void MSB_Information(string text, string caption) => MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
         public void MSB_Error(string er) => MessageBox.Show(er, "Ошибка..", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        public void SetValue(string value, ref string set) => set = string.IsNullOrWhiteSpace(value) ? set : value;
 
         public static string GET(string url)
         {
@@ -68,56 +70,16 @@ namespace LAUNCHER_FANBOT
             }
             foreach (Control tmp_control in control.Controls) GetAllControls(tmp_control, iniFile, name, write);
         }
-        public void GetAllPrms(Menu menu, IniFile iniFile, string name)
+
+        private void GetAllPrms(Menu menu, IniFile iniFile, string name)
         {
+#if DEBUG
             string tmp = string.Empty;
-
-            tmp = iniFile.Read(">prms_autocommand", name);
-            if (tmp.Length > 0) prms[0] = tmp;
-            tmp = iniFile.Read(">prms_nickname", name);
-            if (tmp.Length > 0) prms[1] = tmp;
-            tmp = iniFile.Read(">prms_login", name);
-            if (tmp.Length > 0) prms[2] = tmp;
-            tmp = iniFile.Read(">prms_password", name);
-            if (tmp.Length > 0) prms[3] = tmp;
-            tmp = iniFile.Read(">prms_command", name);
-            if (tmp.Length > 0) prms[4] = tmp;
-            //
-            tmp = iniFile.Read(">prms_servers_0", name);
-            if (tmp.Length > 0) prms[5] = tmp;
-            tmp = iniFile.Read(">prms_servers_1", name);
-            if (tmp.Length > 0) prms[6] = tmp;
-            tmp = iniFile.Read(">prms_servers_2", name);
-            if (tmp.Length > 0) prms[7] = tmp;
-            tmp = iniFile.Read(">prms_servers_3", name);
-            if (tmp.Length > 0) prms[8] = tmp;
-            tmp = iniFile.Read(">prms_servers_4", name);
-            if (tmp.Length > 0) prms[9] = tmp;
-            tmp = iniFile.Read(">prms_servers_5", name);
-            if (tmp.Length > 0) prms[10] = tmp;
-            tmp = iniFile.Read(">prms_servers_6", name);
-            if (tmp.Length > 0) prms[11] = tmp;
-
-            tmp = iniFile.Read(">prms_colors_text_0", name);
-            if (tmp.Length > 0) prms[12] = tmp;
-            tmp = iniFile.Read(">prms_colors_text_1", name);
-            if (tmp.Length > 0) prms[13] = tmp;
-            tmp = iniFile.Read(">prms_colors_text_2", name);
-            if (tmp.Length > 0) prms[14] = tmp;
-            tmp = iniFile.Read(">prms_colors_text_3", name);
-            if (tmp.Length > 0) prms[15] = tmp;
-            tmp = iniFile.Read(">prms_colors_text_4", name);
-            if (tmp.Length > 0) prms[16] = tmp;
-            tmp = iniFile.Read(">prms_colors_text_5", name);
-            if (tmp.Length > 0) prms[17] = tmp;
-            tmp = iniFile.Read(">prms_colors_text_6", name);
-            if (tmp.Length > 0) prms[18] = tmp;
-            tmp = iniFile.Read(">prms_colors_text_7", name);
-            if (tmp.Length > 0) prms[19] = tmp;
-            tmp = iniFile.Read(">prms_colors_text_8", name);
-            if (tmp.Length > 0) prms[20] = tmp;
-            tmp = iniFile.Read(">prms_colors_text_9", name);
-            if (tmp.Length > 0) prms[21] = tmp;
+            for (int i = 0; i < prms.Length; i++) tmp += $"{$">prms_{i}"} = {prms[i]}\n";
+            Clipboard.SetText(tmp); 
+#else
+            for (int i = 0; i < prms.Length; i++) SetValue(iniFile.Read($">prms_{i}", name), ref prms[i]);
+#endif
         }
         public void GetAllControls_ForSettings(List<Control> get_controls_list, Control control, Type type)
         {
