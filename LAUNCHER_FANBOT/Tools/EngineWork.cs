@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LAUNCHER_FANBOT
@@ -16,7 +13,7 @@ namespace LAUNCHER_FANBOT
     {
         public readonly Random random = new Random(Environment.TickCount);
         private bool one_start = false;
-        public string[] prms = new string[] 
+        public string[] prms = new string[]
         {
             "Введите автоматическую команду",
             "Введите ник",
@@ -46,7 +43,7 @@ namespace LAUNCHER_FANBOT
 
         public void MSB_Information(string text, string caption) => MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
         public void MSB_Error(string er) => MessageBox.Show(er, "Ошибка..", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        public void SetValue(string value, ref string set) => set = string.IsNullOrWhiteSpace(value) ? set : value;
+        public void SetValue(string value, ref string set) { if (!string.IsNullOrWhiteSpace(value)) set = value; }
 
         public static string GET(string url)
         {
@@ -63,10 +60,14 @@ namespace LAUNCHER_FANBOT
         }
         public void GetAllControls(Control control, IniFile iniFile, string name, bool write)
         {
-            if (control.Text.Length > 0)
+            if (!string.IsNullOrWhiteSpace(control.Text))
             {
                 if (write) iniFile.Write(control.Name, control.Text, name);
-                else if (iniFile.Read(control.Name, name).Length > 0) control.Text = iniFile.Read(control.Name, name);
+                else
+                {
+                    string tmp = iniFile.Read(control.Name, name);
+                    if (!string.IsNullOrWhiteSpace(tmp)) control.Text = tmp;
+                }
             }
             foreach (Control tmp_control in control.Controls) GetAllControls(tmp_control, iniFile, name, write);
         }
@@ -93,7 +94,6 @@ namespace LAUNCHER_FANBOT
             {
                 GetAllControls(control_cont, new IniFile(file), name, false);
                 GetAllPrms(menu, new IniFile(file), name);
-
                 menu.LoadPrms();
             }
             else if (one_start == true)

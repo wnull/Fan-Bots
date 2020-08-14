@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -46,7 +45,6 @@ namespace LAUNCHER_FANBOT
         private static byte servers;
 
         #endregion Переменные
-
 
 #if DEBUG
         public void GET_CONTROLS_LANG(Control control_cont, string name)
@@ -151,9 +149,9 @@ namespace LAUNCHER_FANBOT
             SettingsSave_settings_bots();
         }
 
-#region tabControl_main
+        #region tabControl_main
 
-#region FORM_CONTROLS
+        #region FORM_CONTROLS
 
         private void button_delete_setting_Click(object sender, EventArgs e)
         {
@@ -320,7 +318,7 @@ namespace LAUNCHER_FANBOT
 
             Color color = save_color ? colorDialog_main.Color : ColorTranslator.FromHtml(colors[2]);
             BackColor = color;
-            
+
             List<Control> controls = new List<Control>();
             EngineWork.GetAllControls_ForSettings(controls, this, page_bot_global_settings.GetType());
             foreach (TabPage tmp_tabpage in controls) tmp_tabpage.BackColor = color;
@@ -530,9 +528,9 @@ namespace LAUNCHER_FANBOT
             }
         }
 
-#endregion FORM_CONTROLS
+        #endregion FORM_CONTROLS
 
-#region OTHER
+        #region OTHER
 
         private byte serverBox(ComboBox c) => c.SelectedIndex != -1 ? (byte)c.SelectedIndex : (byte)8;
 
@@ -711,7 +709,7 @@ namespace LAUNCHER_FANBOT
             {
                 string tmp_file_server_cfg = $@"cfg\server\{server}.cfg";
 
-                if (radioButton_levak_keys.Checked) 
+                if (radioButton_levak_keys.Checked)
                     File.WriteAllText(tmp_file_server_cfg, EngineWork.GET($@"https://raw.githubusercontent.com/Levak/warfacebot/master/cfg/server/{server}.cfg"));
             }
             catch (Exception er) { EngineWork.MSB_Error($"Возможно у вас недоступен интеренет, либо режим получения ключей недоступен!\n\n{er}"); return; }
@@ -873,8 +871,7 @@ namespace LAUNCHER_FANBOT
                 if (hScrollBar_transparency.Value > 10) settings_menu.Write(hScrollBar_transparency.Name, hScrollBar_transparency.Value.ToString(), sect);
 
                 //Цвета
-                for (int i = 0; i < colors.Length; i++)
-                    if (colors[i] != null && colors[i].Length > 0) settings_menu.Write($"colors_{i}", colors[i], sect);
+                for (int i = 0; i < colors.Length; i++) if (!string.IsNullOrWhiteSpace(colors[i])) settings_menu.Write($"colors_{i}", colors[i], sect);
             }
             catch (Exception er) { EngineWork.MSB_Error("Ошибка сохранения настроек!" + "\n" + er); }
         }
@@ -931,8 +928,9 @@ namespace LAUNCHER_FANBOT
                     LoadPrms();
 
                     //Цвет текста консоли
-                    comboBox_text_colors.SelectedIndex = Convert.ToInt32(settings_menu.Read(comboBox_text_colors.Name, sect).Length > 0 ? settings_menu.Read(comboBox_text_colors.Name, sect) : "0");
-                    
+                    string tmp_comboBox_text_colors = settings_menu.Read(comboBox_text_colors.Name, sect);
+                    comboBox_text_colors.SelectedIndex = Convert.ToInt32(!string.IsNullOrWhiteSpace(tmp_comboBox_text_colors) ? tmp_comboBox_text_colors : "0");
+
                     //Логи
                     checkBox_save_logs.Checked = bool.Parse(settings_menu.Read(checkBox_save_logs.Name, sect));
 
@@ -944,7 +942,7 @@ namespace LAUNCHER_FANBOT
                     for (int i = 0; i < colors.Length; i++)
                     {
                         string tmp = settings_menu.Read($"colors_{i}", sect);
-                        if (tmp.Length > 0)
+                        if (!string.IsNullOrWhiteSpace(tmp))
                         {
                             colors[i] = tmp;
                             switch (i)
@@ -1001,11 +999,11 @@ namespace LAUNCHER_FANBOT
             catch (Exception er) { EngineWork.MSB_Error(er.ToString()); }
         }
 
-#endregion OTHER
+        #endregion OTHER
 
-#endregion tabControl_main
+        #endregion tabControl_main
 
-#region panel_page_settings_bots
+        #region panel_page_settings_bots
 
         private int line = 0;
         private void pictureBox_clear_command_Click(object sender, EventArgs e)
@@ -1047,6 +1045,6 @@ namespace LAUNCHER_FANBOT
             catch (Exception er) { EngineWork.MSB_Error(er.ToString()); }
         }
 
-#endregion panel_page_settings_bots
+        #endregion panel_page_settings_bots
     }
 }
