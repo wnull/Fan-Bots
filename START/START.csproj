@@ -80,7 +80,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IniFile.cs" />
     <Compile Include="One_Message.cs">
       <SubType>Form</SubType>
     </Compile>
