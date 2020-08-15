@@ -16,7 +16,6 @@ namespace START
         [STAThread]
         private static void Main()
         {
-            //Детект Игры
             if (!File.Exists("NO_CHECK.fanbot") && Process.GetProcessesByName("Game").Length > 0 || Process.GetProcessesByName("GameCenter").Length > 0)
                 Environment.Exit(0);
 
