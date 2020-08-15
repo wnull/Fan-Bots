@@ -1,24 +1,24 @@
-<p align="center"> 
+<div align="center">
   <img align="center" src="https://github.com/Lako-FC/Fan-Bots/blob/master/GITHUB_RESOURCES/logo.png?raw=true" width="150"/> 
-</p>
+</div>
 
-<p align="center">
+<div align="center">
  <img src="https://img.shields.io/badge/PRICE-free-%231DC8EE"/>
  <img src="https://img.shields.io/badge/.Net_Framework-4.7-%231DC8EE"/>
- <h1 align="center">Fan-Bot's</h>
-</p>
+ <h1>Fan-Bot's</h1>
+</div>
 
-<p align="center">
+<div align="center">
   <img src="https://img.shields.io/github/downloads/Lako-FC/Fan-Bots/total?color=%231DC8EE&label=DOWNLOADS&logo=GitHub&logoColor=%231DC8EE&style=flat-square"/>
   <img src="https://img.shields.io/github/last-commit/Lako-FC/Fan-Bots?color=%231DC8EE&label=LAST%20COMMIT&style=flat-square"/>
   <img src="https://img.shields.io/github/release-date/Lako-FC/Fan-Bots?color=%231DC8EE&label=RELEASE%20DATE&style=flat-square"/>
-</p>
+</div>
 
-<p align="center">
+<div align="center">
   Данное <b>бесплатное ПО</b> предназначено для запуска ботов на игровые сервера Warface.<br>
   Группа ВК: <a href="https://vk.com/fanbots_wf" target="_blank">Fan-Bot's ● (Fun-Bot's for Warface)</a><br>
   Связанный проект: <a href="https://github.com/Lako-FC/warfacebot_fb" target="_blank">WarfaceBotFB</a><br>
-</p>
+</div>
 
 [wf_ru]: https://ru.warface.com/
 [releases]: https://github.com/Lako-FC/Fan-Bots/releases/
