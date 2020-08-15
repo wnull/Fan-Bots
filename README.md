@@ -15,6 +15,7 @@
   <img src="https://img.shields.io/github/release-date/Lako-FC/Fan-Bots?color=%231DC8EE&label=RELEASE%20DATE&style=flat-square"/>
 </p>
 
+
 <p align="center">
   Данное <b>бесплатное ПО</b> предназначено для запуска ботов на игровые сервера Warface.<br>
   Группа ВК: <a href="https://vk.com/fanbots_wf" target="_blank">Fan-Bot's ● (Fun-Bot's for Warface)</a><br>
