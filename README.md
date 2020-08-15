@@ -1,5 +1,5 @@
 <p align="center"> 
-  <img align="center" src="https://github.com/Lako-FC/Fan-Bots/blob/master/SCREENSHOTS/logo.png?raw=true" width="150"/> 
+  <img align="center" src="https://github.com/Lako-FC/Fan-Bots/blob/master/GITHUB_RESOURCES/logo.png?raw=true" width="150"/> 
 </>
 
 <p align="center">
@@ -38,7 +38,7 @@
 - Сохранение данных аккаунта, настроек и логов (авторизации и ботов).
 
 ## 🔎 Основной лаунчер
-![](https://github.com/Lako-FC/Fan-Bots/blob/master/SCREENSHOTS/gui.gif?raw=true)
+![](https://github.com/Lako-FC/Fan-Bots/blob/master/GITHUB_RESOURCES/gui.gif?raw=true)
 
 ## 🚀 Как использовать
 
