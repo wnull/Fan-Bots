@@ -56,8 +56,6 @@ namespace LAUNCHER_FANBOT
         private static extern bool CloseHandle(IntPtr hObject);
 
         private const int STARTF_USESHOWWINDOW = 1;
-        //private const int SW_SHOWNOACTIVATE = 4;
-        //private const int SW_SHOWMINNOACTIVE = 7;
 
         public static void StartProcessNoActivate(string cmdLine, short sw)
         {
