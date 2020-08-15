@@ -42,7 +42,7 @@ namespace LAUNCHER_FANBOT
         };
 
         public void MSB_Information(string text, string caption) => MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-        public void MSB_Error(string er) => MessageBox.Show(er, "Ошибка..", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        public void MSB_Error(string er, string caption = "Ошибка..") => MessageBox.Show(er, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
         public void SetValue(string value, ref string set) { if (!string.IsNullOrWhiteSpace(value)) set = value; }
 
         public static string GET(string url)
