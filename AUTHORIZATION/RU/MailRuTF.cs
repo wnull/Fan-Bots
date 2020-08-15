@@ -75,10 +75,10 @@ namespace AUTHORIZATION
 
                     if (SaveAccount.Checked)
                     {
-                        IniFile Mi = new IniFile("mailru-two-factor");
-                        Mi.DeleteSection(Login);
-                        Mi.Write("Mpop", Response.Cookies["Mpop"].Value, Login);
-                        Mi.Write("ssdc", Response.Cookies["ssdc"].Value, Login);
+                        IniFile mailru_two_factor = new IniFile("mailru-two-factor");
+                        mailru_two_factor.DeleteSection(Login);
+                        mailru_two_factor.Write("Mpop", Response.Cookies["Mpop"].Value, Login);
+                        mailru_two_factor.Write("ssdc", Response.Cookies["ssdc"].Value, Login);
                     }
                 }
 
