@@ -1,23 +1,31 @@
-# Fan-Bot's ![](https://img.shields.io/badge/PRICE-free-%231DC8EE) ![](https://img.shields.io/badge/.Net_Framework-4.7-%231DC8EE)
-![GitHub All Releases](https://img.shields.io/github/downloads/Lako-FC/Fan-Bots/total?color=%231DC8EE&label=DOWNLOADS&logo=GitHub&logoColor=%231DC8EE&style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/Lako-FC/Fan-Bots?color=%231DC8EE&label=LAST%20COMMIT&style=flat-square)
-![GitHub Release Date](https://img.shields.io/github/release-date/Lako-FC/Fan-Bots?color=%231DC8EE&label=RELEASE%20DATE&style=flat-square)
+<p align="center"> 
+  <img align="center" src="https://github.com/Lako-FC/Fan-Bots/blob/master/SCREENSHOTS/logo.png?raw=true" width="150"/> 
+</>
 
-Fan-Bot's - **бесплатное ПО**, которое запускает ботов для игры Warface.
+<p align="center">
+ <img src="https://img.shields.io/badge/PRICE-free-%231DC8EE"/>
+ <img src="https://img.shields.io/badge/.Net_Framework-4.7-%231DC8EE"/>
+</>
 
-Группа ВК: **[Fan-Bot's ● (Fun-Bot's for Warface)][group_vk]**
+<h1 align="center">Fan-Bot's</>
 
-Связанный проект: **[WarfaceBotFB][warfacebotfb]**
+<p align="center">
+  <img src="https://img.shields.io/github/downloads/Lako-FC/Fan-Bots/total?color=%231DC8EE&label=DOWNLOADS&logo=GitHub&logoColor=%231DC8EE&style=flat-square"/>
+  <img src="https://img.shields.io/github/last-commit/Lako-FC/Fan-Bots?color=%231DC8EE&label=LAST%20COMMIT&style=flat-square"/>
+  <img src="https://img.shields.io/github/release-date/Lako-FC/Fan-Bots?color=%231DC8EE&label=RELEASE%20DATE&style=flat-square"/>
+</>
 
-[group_vk]: https://vk.com/fanbots_wf
-[wbl]: https://github.com/Levak/warfacebot
+<p align="center">
+  Данное <b>бесплатное ПО</b> предназначено для запуска ботов на игровые сервера Warface.<br>
+  Группа ВК: <a href="https://vk.com/fanbots_wf" target="_blank">Fan-Bot's ● (Fun-Bot's for Warface)</a><br>
+  Связанный проект: <a href="https://github.com/Lako-FC/warfacebot_fb" target="_blank">WarfaceBotFB</a><br>
+</p>
+
 [wf_ru]: https://ru.warface.com/
 [releases]: https://github.com/Lako-FC/Fan-Bots/releases/
-[warfacebotfb]: https://github.com/Lako-FC/warfacebot_fb/releases/
 [commands_wb]: https://github.com/Lako-FC/warfacebot_fb#команды
-[screenshots]: https://github.com/Lako-FC/Fan-Bots/tree/master/SCREENSHOTS/README.md
 
-## Основной функционал
+## 🤖 Основной функционал
 
 - Запуск ботов (warfacebot_fb) на игровые сервера Warface.
 - Авторизация MailRu, MyCom, GoPlay.
@@ -29,10 +37,10 @@ Fan-Bot's - **бесплатное ПО**, которое запускает б�
 - Запуск всех ботов и их рестарт.
 - Сохранение данных аккаунта, настроек и логов (авторизации и ботов).
 
-## Главное меню  **[(остальные скрины)][screenshots]**
-![](https://github.com/Lako-FC/Fan-Bots/blob/master/SCREENSHOTS/1.png?raw=true)
+## 🔎 Основной лаунчер
+![](https://github.com/Lako-FC/Fan-Bots/blob/master/SCREENSHOTS/gui.gif?raw=true)
 
-## Как использовать
+## 🚀 Как использовать
 
 - ### Безопасный запуск
 Запускайте на **виртуальной машине**, где **НЕТ** **Warface** и **Игрового Центра**, иначе вы можете получить **блокировку основного аккаунта** (который запущен в игре Warface на данный момент).
@@ -55,7 +63,7 @@ Fan-Bot's - **бесплатное ПО**, которое запускает б�
 
 - ### Команды можете узнать [тут][commands_wb].
 
-## Для разработчиков
+## 🔧 Для разработчиков
 - ### Информация о проекте
 1. Целевая рабочая среда: `.Net Framework 4.7`
 2. Среда разработки: `Visual Studio 2019`
