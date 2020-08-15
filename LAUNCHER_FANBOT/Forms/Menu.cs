@@ -112,7 +112,7 @@ namespace LAUNCHER_FANBOT
                     }
                 }
             }
-            catch (Exception er) { EngineWork.MSB_Error($"[Menu -> Загрузка настроек ботов]: {er}"); }
+            catch (Exception er) { EngineWork.MSB_Error(er.ToString(), "[Menu -> Загрузка настроек ботов]"); }
         }
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -227,7 +227,7 @@ namespace LAUNCHER_FANBOT
                     }
                     label_int_bot.Text = n_bots.ToString();
                 }
-                catch (Exception er) { EngineWork.MSB_Error($"[button_start_all_bots_Click]: {er}"); }
+                catch (Exception er) { EngineWork.MSB_Error(er.ToString(), "[button_start_all_bots_Click]"); }
             }
         }
         private void button_start_Click(object sender, EventArgs e)
@@ -254,7 +254,7 @@ namespace LAUNCHER_FANBOT
                     }
                 }
             }
-            catch (Exception er) { EngineWork.MSB_Error($"[button_start_Click]: {er}"); }
+            catch (Exception er) { EngineWork.MSB_Error(er.ToString(), "[button_start_Click]"); }
         }
         private void button_del_server_Click(object sender, EventArgs e)
         {
@@ -370,7 +370,7 @@ namespace LAUNCHER_FANBOT
                 }
                 else EngineWork.MSB_Information($"Логи не найдены!", "Удаление логов..");
             }
-            catch (Exception er) { EngineWork.MSB_Error($"[button_clear_logs]: {er}"); }
+            catch (Exception er) { EngineWork.MSB_Error(er.ToString(), "[button_clear_logs]"); }
         }
 
         private void timer_restart_Tick(object sender, EventArgs e)
@@ -407,7 +407,7 @@ namespace LAUNCHER_FANBOT
                     }
                 }
             }
-            catch (Exception er) { EngineWork.MSB_Error($"[timer_start_bots_Tick]: {er}"); }
+            catch (Exception er) { EngineWork.MSB_Error(er.ToString(), "[timer_start_bots_Tick]"); }
         }
         private void timer_check_data_Tick(object sender, EventArgs e)
         {
@@ -440,7 +440,7 @@ namespace LAUNCHER_FANBOT
                         else checkBox_bots[i].Enabled = false;
                     }
                 }
-                catch (Exception error) { EngineWork.MSB_Error($"[timer_check_data_Tick]: \n\n{error}"); timer_check_data.Stop(); }
+                catch (Exception er) { EngineWork.MSB_Error(er.ToString(), "[timer_check_data_Tick]"); timer_check_data.Stop(); }
             }
         }
 
@@ -565,7 +565,7 @@ namespace LAUNCHER_FANBOT
 
                 EngineWork.MSB_Information("Данные удалены!", "Удаление данных..");
             }
-            catch (Exception er) { EngineWork.MSB_Error(er.ToString()); }
+            catch (Exception er) { EngineWork.MSB_Error(er.ToString(), "[DeleteDataServer]"); }
         }
         private void DeleteAllData(string bot)
         {
@@ -579,7 +579,7 @@ namespace LAUNCHER_FANBOT
 
                 EngineWork.MSB_Information("Данные удалены!", "Удаление данных..");
             }
-            catch (Exception er) { EngineWork.MSB_Error(er.ToString()); }
+            catch (Exception er) { EngineWork.MSB_Error(er.ToString(), "[DeleteAllData]"); }
         }
 
         private void CheckMyProc(string argm, string bot, int id_bot)
@@ -659,10 +659,11 @@ namespace LAUNCHER_FANBOT
 
                         }
                     }
-                    catch (Exception er) { EngineWork.MSB_Error($"[rich?.Invoke]: {er}"); }
+                    catch (Exception er) { EngineWork.MSB_Error(er.ToString(), "[[rich?.Invoke]"); }
+
                 });
             }
-            catch (Exception er) { EngineWork.MSB_Error($"[ConsoleOutputHandler]: {er}"); }
+            catch (Exception er) { EngineWork.MSB_Error(er.ToString(), "[ConsoleOutputHandler]"); }
         }
 
         private void WriteCmd(RichTextBox rch, TextBox txb, Process proc, bool delete_cmd, string text = "")
@@ -712,7 +713,7 @@ namespace LAUNCHER_FANBOT
                 if (!Directory.Exists(tmp_logs)) Directory.CreateDirectory(tmp_logs);
                 File.AppendAllText(tmp_file, $"[{TimeText()}]: {text}\n");
             }
-            catch (Exception er) { EngineWork.MSB_Error($"[SaveLogs]: {er}"); }
+            catch (Exception er) { EngineWork.MSB_Error(er.ToString(), "[SaveLogs]"); }
         }
         private void OpenCMD(int id_bot, string token, string id, string server)
         {
@@ -723,7 +724,7 @@ namespace LAUNCHER_FANBOT
                 if (radioButton_levak_keys.Checked)
                     File.WriteAllText(tmp_file_server_cfg, EngineWork.GET($@"https://raw.githubusercontent.com/Levak/warfacebot/master/cfg/server/{server}.cfg"));
             }
-            catch (Exception er) { EngineWork.MSB_Error($"[GetKey]: Возможно у вас недоступен интеренет, либо режим получения ключей недоступен!\n\n{er}"); return; }
+            catch (Exception er) { EngineWork.MSB_Error($"Возможно у вас недоступен интеренет, либо режим получения ключей недоступен!\n\n{er}", "[GetKey]"); return;  }
 
             try
             {
@@ -760,7 +761,7 @@ namespace LAUNCHER_FANBOT
                 }
                 bots_status[id_bot] = false;
             }
-            catch (Exception er) { EngineWork.MSB_Error($"[OpenCMD]: Ошибка запуска CMD!\n{er}"); bots_status[id_bot] = false; }
+            catch (Exception er) { EngineWork.MSB_Error($"Ошибка запуска CMD!\n{er}", "[OpenCMD]"); bots_status[id_bot] = false; }
         }
         private void Start_Aut(ComboBox comboBox, string login, string password, Button button, string bot, CheckBox checkBox)
         {
@@ -817,11 +818,11 @@ namespace LAUNCHER_FANBOT
 
                     OpenCMD(id_bot, check[2], check[1], serverBox_cfg(comboBox));
                 }
-                else EngineWork.MSB_Error(check[1]);
+                else EngineWork.MSB_Error(check[1], "[Авторизация]"); 
 
                 comboBox.Invoke((MethodInvoker)delegate { comboBox.Enabled = true; });
             }
-            catch (Exception er) { EngineWork.MSB_Error($"[Start_Aut]: {er}"); bots_status[id_bot] = false; }
+            catch (Exception er) { EngineWork.MSB_Error(er.ToString(), "[Start_Aut]"); bots_status[id_bot] = false; }
         }
 
         private void GetFilesLanguage()
@@ -883,7 +884,7 @@ namespace LAUNCHER_FANBOT
                 //Цвета
                 for (int i = 0; i < colors.Length; i++) if (!string.IsNullOrWhiteSpace(colors[i])) settings_menu.Write($"colors_{i}", colors[i], sect);
             }
-            catch (Exception er) { EngineWork.MSB_Error($"[SaveSettings]: Ошибка сохранения настроек!\n{er}"); }
+            catch (Exception er) { EngineWork.MSB_Error($"Ошибка сохранения настроек!\n{er}", "[SaveSettings]"); }
         }
         private void LoadSettings()
         {
@@ -970,11 +971,7 @@ namespace LAUNCHER_FANBOT
 
                 label_ver.Text = $"v{Application.ProductVersion}";
             }
-            catch (Exception er)
-            {
-                EngineWork.MSB_Error($"Ошибка загрузки настроек лаунчера!\n{er}");
-                SaveSettings(null, null);
-            }
+            catch (Exception er) { EngineWork.MSB_Error($"Ошибка загрузки настроек лаунчера!\n{er}", "[LoadSettings]"); SaveSettings(null, null); }
 
             try
             {
@@ -991,7 +988,8 @@ namespace LAUNCHER_FANBOT
                     wb_settings.Write("g_language", "russian", sett);
                 }
             }
-            catch (Exception er) { EngineWork.MSB_Error($"Ошибка загрузки настроек бота!\n{er}"); }
+            catch (Exception er) { EngineWork.MSB_Error($"Ошибка загрузки настроек бота!\n{er}", "[LoadSettings]"); }
+
             if (!File.Exists(auto_command)) File.Create(auto_command);
         }
         public void LoadPrms()
@@ -1006,7 +1004,7 @@ namespace LAUNCHER_FANBOT
                 foreach (ComboBox combobox in comboBoxes) for (int a = 0, b = 5; a < combobox.Items.Count; a++, b++) combobox.Items[a] = EngineWork.prms[b];
                 for (int a = 0, b = 12; a < comboBox_text_colors.Items.Count; a++, b++) comboBox_text_colors.Items[a] = EngineWork.prms[b];
             }
-            catch (Exception er) { EngineWork.MSB_Error($"[LoadPrms]: {er}"); }
+            catch (Exception er) { EngineWork.MSB_Error(er.ToString(), "[LoadPrms]"); }
         }
 
         #endregion OTHER
@@ -1052,7 +1050,7 @@ namespace LAUNCHER_FANBOT
                 }
                 else setting_bots.DeleteKey("AUTO_COMMAND", sett);
             }
-            catch (Exception er) { EngineWork.MSB_Error($"[SettingsSave_settings_bots]: {er}"); }
+            catch (Exception er) { EngineWork.MSB_Error(er.ToString(), "[SettingsSave_settings_bots]"); }
         }
 
         #endregion panel_page_settings_bots
